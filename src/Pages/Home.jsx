@@ -55,7 +55,7 @@ const Home = () => {
             <div>
                 <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row-reverse">
-                        <img src="https://html.creativegigstf.com/khuj/khuj/images/banner/banner-3.jpg" className="max-w-sm lg:max-w-xl rounded-lg shadow-2xl" />
+                        <img src="https://www.recablog.com/wp-content/uploads/2021/09/web-development.png" className="max-w-sm md:max-w-xl lg:max-w-3xl rounded-lg shadow-2xl" />
                         <div>
                             <p className="text-2xl text-gray-600 pb-3">WHY CHOOSE US</p>
                             <h1 className="text-5xl font-bold"><span className="text-green-600">Khujo</span> Website Only For Your Dream Jobs</h1>
