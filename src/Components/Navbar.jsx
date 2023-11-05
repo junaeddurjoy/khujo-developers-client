@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
     return (
         <div>
@@ -22,12 +24,24 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex gap-16 pr-10">
-                    <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Home</div>
-                    <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">All Jobs</div>
-                    <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Applied Jobs</div>
-                    <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Add Jobs</div>
-                    <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">My Jobs</div>
-                    <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Blogs</div>
+                    <Link to={'/'}>
+                        <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Home</div>
+                    </Link>
+                    <Link to={'/alljobs'}>
+                        <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">All Jobs</div>
+                    </Link>
+                    <Link to={'/appliedjobs'}>
+                        <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Applied Jobs</div>
+                    </Link>
+                    <Link  to={'/addjobs'}>
+                        <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Add Jobs</div>
+                    </Link>
+                    <Link to={'/myjobs'}>
+                        <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">My Jobs</div>
+                    </Link>
+                    <Link to={'/blogs'}>
+                        <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Blogs Jobs</div>
+                    </Link>
                     <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">User Name</div>
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
