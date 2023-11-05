@@ -1,7 +1,80 @@
 [
     {
+        "job_id" : 1,
         "recruiter" : "Junaed Hossain",
-        "title" : "ui"
+        "title" : "UI/UX Designer",
+        "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
+        "name" : "Junaed Hossain",
+        "category" : "Remote",
+        "salary" : "$50k",
+        "description" : "User Experience Design",
+        "posting_date" : "22/2/2023",
+        "deadline" : "30/3/2023",
+        "applicants" : 0
     },
-    {}
+    {
+        "job_id" : 2,
+        "recruiter" : "Junaed Hossain",
+        "title" : "UI/UX Designer",
+        "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
+        "name" : "Junaed Hossain",
+        "category" : "Part Time",
+        "salary" : "$50k",
+        "description" : "User Experience Design",
+        "posting_date" : "22/2/2023",
+        "deadline" : "30/3/2023",
+        "applicants" : 0
+    },
+    {
+        "job_id" : 3,
+        "recruiter" : "Junaed Hossain",
+        "title" : "UI/UX Designer",
+        "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
+        "name" : "Junaed Hossain",
+        "category" : "On Site",
+        "salary" : "$50k",
+        "description" : "User Experience Design",
+        "posting_date" : "22/2/2023",
+        "deadline" : "30/3/2023",
+        "applicants" : 0
+    },
+    {
+        "job_id" : 4,
+        "recruiter" : "Junaed Hossain",
+        "title" : "UI/UX Designer",
+        "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
+        "name" : "Junaed Hossain",
+        "category" : "Remote",
+        "salary" : "$50k",
+        "description" : "User Experience Design",
+        "posting_date" : "22/2/2023",
+        "deadline" : "30/3/2023",
+        "applicants" : 0
+    },
+    {
+        "job_id" : 5,
+        "recruiter" : "Junaed Hossain",
+        "title" : "UI/UX Designer",
+        "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
+        "name" : "Junaed Hossain",
+        "category" : "On Site",
+        "salary" : "$50k",
+        "description" : "User Experience Design",
+        "posting_date" : "22/2/2023",
+        "deadline" : "30/3/2023",
+        "applicants" : 0
+    },
+    {
+        "job_id" : 6,
+        "recruiter" : "Junaed Hossain",
+        "title" : "UI/UX Designer",
+        "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
+        "name" : "Junaed Hossain",
+        "category" : "Hybrid",
+        "salary" : "$50k",
+        "description" : "User Experience Design",
+        "posting_date" : "22/2/2023",
+        "deadline" : "30/3/2023",
+        "applicants" : 0
+    }
 ]

@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Authcontext } from "../providers/Authprovider";
 import { useContext } from "react";
-import {TbLogin2, TbLogin} from 'react-icons/tb'
+import { TbLogin2, TbLogin } from 'react-icons/tb'
 const Navbar = () => {
     const { user, logout } = useContext(Authcontext);
     const handleSignOut = event => {
@@ -63,46 +63,45 @@ const Navbar = () => {
                     <Link to={'/blogs'}>
                         <div className="text-gray-800 hover:text-white hover:bg-green-400 p-2 rounded-lg text-xl hover:text-2xl font-semibold ">Blogs</div>
                     </Link>
-                    <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            {
-                                user ?
-                                    <div className="w-10 rounded-full">
-                                        <img src={user.photoURL} />
-                                    </div>
-                                    :
-                                    <div className="w-10 rounded-full">
-                                        <img src="https://i.ibb.co/LN69WPV/image.png" />
-                                    </div>
-                            }
-
-                        </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-green-100 rounded-box w-52">
-                            <li className="text-lg font-semibold hover:text-2xl">Profile</li>
-                            {
-                                user ?
-                                    <Link>
-                                        <li className="text-lg font-semibold hover:text-2xl">{user.displayName}</li>
-                                    </Link>
-                                    :
-                                    <Link>
-                                        <li className="text-lg font-semibold hover:text-2xl">User Name</li>
-                                    </Link>
-                            }
-                            {
-                                user ?
-                                    <Link to={'/login'}>
-                                        <div onClick={handleSignOut} className="text-lg flex items-center gap-1 font-semibold hover:text-2xl">Log Out<TbLogin></TbLogin></div>
-                                    </Link>
-                                    :
-                                    <Link to={'/login'}>
-                                        <div className="text-lg flex items-center gap-1 font-semibold hover:text-2xl">Login<TbLogin2></TbLogin2></div>
-                                    </Link>
-                            }
-                        </ul>
-                    </div>
                 </div>
+                <div className="dropdown dropdown-end">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        {
+                            user ?
+                                <div className="w-10 rounded-full">
+                                    <img src={user.photoURL} />
+                                </div>
+                                :
+                                <div className="w-10 rounded-full">
+                                    <img src="https://i.ibb.co/LN69WPV/image.png" />
+                                </div>
+                        }
 
+                    </label>
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-green-100 rounded-box w-52">
+                        <li className="text-lg font-semibold hover:text-2xl">Profile</li>
+                        {
+                            user ?
+                                <Link>
+                                    <li className="text-lg font-semibold hover:text-2xl">{user.displayName}</li>
+                                </Link>
+                                :
+                                <Link>
+                                    <li className="text-lg font-semibold hover:text-2xl">User Name</li>
+                                </Link>
+                        }
+                        {
+                            user ?
+                                <Link to={'/login'}>
+                                    <div onClick={handleSignOut} className="text-lg flex items-center gap-1 font-semibold hover:text-2xl">Log Out<TbLogin></TbLogin></div>
+                                </Link>
+                                :
+                                <Link to={'/login'}>
+                                    <div className="text-lg flex items-center gap-1 font-semibold hover:text-2xl">Login<TbLogin2></TbLogin2></div>
+                                </Link>
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     );
