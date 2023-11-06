@@ -1,15 +1,15 @@
 import { useContext} from "react";
 import { Authcontext } from "../providers/Authprovider";
 
-const MyjobsCard = ({ job, handleDelete }) => {
+const AppliedjobsCard = ({ job, handleDelete }) => {
     const { user } = useContext(Authcontext);
-    const { _id, recruiter_email, applicant_name, applicant_email, deadline, salary, description, job_title, category } = job;
+    const { _id,  applicant_name, applicant_email, deadline, salary, description, job_title, category } = job;
 
     return (
         <div>
             {/* <img className="h-32 w-40" src={image} alt="" /> */}
             {
-                user.email == recruiter_email &&
+                user.email == applicant_email &&
                 <div className="bg-white hover:bg-green-50 hover:shadow-2xl rounded-2xl hover:border-2 hover:border-green-500">
                     <h1 className="text-3xl my-2 font-bold ml-5">{job_title}</h1>
                     <div className="items-center mb-5">
@@ -31,4 +31,4 @@ const MyjobsCard = ({ job, handleDelete }) => {
     );
 };
 
-export default MyjobsCard;
+export default AppliedjobsCard;

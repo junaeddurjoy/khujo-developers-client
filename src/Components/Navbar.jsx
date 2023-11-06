@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { TbLogin2, TbLogin } from 'react-icons/tb'
 const Navbar = () => {
     const { user, logout } = useContext(Authcontext);
+    
     const handleSignOut = event => {
         logout()
             .then()
