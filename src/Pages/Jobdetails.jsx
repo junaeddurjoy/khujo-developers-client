@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Jobdetails = () => {
     const job = useLoaderData();
-    const { recruiter, recruiter_mail,title, description , category, salary, posting_date, deadline, applicants } = job;
+    const { name, recruiter_mail,title, description , category, salary, posting_date, deadline, applicants } = job;
     const handleApply = event => {
         event.preventDefault();
         const form = event.target;
@@ -59,7 +59,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Name</span>
-                                    <input type="text" defaultValue={recruiter} name="recruiter_name" placeholder="recruiter name" className="input input-bordered" />
+                                    <input type="text" defaultValue={name} name="recruiter_name" placeholder="recruiter name" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 2 */}
