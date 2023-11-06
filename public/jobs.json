@@ -2,6 +2,7 @@
     {
         "job_id" : 1,
         "recruiter" : "Junaed Hossain",
+        "recruiter_mail" : "scarecrow.oblu@gmail.c",
         "title" : "UI/UX Designer",
         "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
         "name" : "Junaed Hossain",
@@ -15,6 +16,7 @@
     {
         "job_id" : 2,
         "recruiter" : "Junaed Hossain",
+        "recruiter_mail" : "scarecrow.oblu@gmail.c",
         "title" : "UI/UX Designer",
         "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
         "name" : "Junaed Hossain",
@@ -28,6 +30,7 @@
     {
         "job_id" : 3,
         "recruiter" : "Junaed Hossain",
+        "recruiter_mail" : "scarecrow.oblu@gmail.c",
         "title" : "UI/UX Designer",
         "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
         "name" : "Junaed Hossain",
@@ -41,6 +44,7 @@
     {
         "job_id" : 4,
         "recruiter" : "Junaed Hossain",
+        "recruiter_mail" : "scarecrow.oblu@gmail.c",
         "title" : "UI/UX Designer",
         "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
         "name" : "Junaed Hossain",
@@ -54,6 +58,7 @@
     {
         "job_id" : 5,
         "recruiter" : "Junaed Hossain",
+        "recruiter_mail" : "scarecrow.oblu@gmail.c",
         "title" : "UI/UX Designer",
         "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
         "name" : "Junaed Hossain",
@@ -67,6 +72,7 @@
     {
         "job_id" : 6,
         "recruiter" : "Junaed Hossain",
+        "recruiter_mail" : "scarecrow.oblu@gmail.c",
         "title" : "UI/UX Designer",
         "image" : "https://i.ibb.co/7bCkft4/png-clipart-googleplex-google-logo-google-search-oliver-atom-text-logo.png",
         "name" : "Junaed Hossain",

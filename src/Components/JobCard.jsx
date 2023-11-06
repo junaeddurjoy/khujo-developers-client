@@ -1,7 +1,7 @@
 import { CiLocationOn } from 'react-icons/ci';
-import { BiTimeFive } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 const JobCard = ({ job }) => {
-    const { title, name, category,image } = job;
+    const {_id, title, name, category,image } = job;
     return (
         <div>
             <div className="bg-white hover:bg-green-50 hover:shadow-2xl rounded-2xl hover:border-2 hover:border-green-500">
@@ -11,12 +11,10 @@ const JobCard = ({ job }) => {
                 <div className="flex ml-5 items-center">
                     <CiLocationOn className="text-2xl text-green-700 font-extrabold"></CiLocationOn>
                     <p className="text-2xl">{name}</p>
-                    <BiTimeFive className="ml-3 text-2xl text-green-700 font-extrabold"></BiTimeFive>
-                    <p className="text-2xl">Full Time</p>
                 </div>
                 <div className="ml-5 mb-7 mt-3">
                     <span className="font-semibold text-3xl">$5000/</span>month
-                    <button className="btn btn-outline btn-success ml-16">Details</button>
+                    <Link to={`jobdetails/${_id}`}><button className="btn btn-outline btn-success ml-16">Details</button></Link>
                 </div>
             </div>
         </div>
