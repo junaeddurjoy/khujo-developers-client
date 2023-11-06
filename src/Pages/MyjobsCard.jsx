@@ -1,5 +1,6 @@
-import { useContext} from "react";
+import { useContext } from "react";
 import { Authcontext } from "../providers/Authprovider";
+import { Link } from "react-router-dom";
 
 const MyjobsCard = ({ job, handleDelete }) => {
     const { user } = useContext(Authcontext);
@@ -19,9 +20,12 @@ const MyjobsCard = ({ job, handleDelete }) => {
                         <p className="ml-5 text-xl"><span className='text-2xl font-semibold'>Salary: </span>{salary}</p>
                         <p className="ml-5 text-xl"><span className='text-2xl font-semibold'>Description: </span>{description}</p>
                         <p className="ml-5 text-xl"><span className='text-2xl font-semibold'>Job Category: </span>{category}</p>
-                        <button onClick={() => handleDelete(_id) } className="btn btn-error w-3/4 ml-12 mt-4 bg-red-300">Delete</button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-error w-3/4 ml-12 mt-4 bg-red-500 hover:bg-red-300">Delete</button>
+                        <Link to={`/updatejobs/${_id}`}>
+                            <button className="btn btn-error w-3/4 ml-12 mt-4 bg-yellow-300 hover:bg-yellow-100">Update</button>
+                        </Link>
                     </div>
-                    
+
 
                 </div>
             }

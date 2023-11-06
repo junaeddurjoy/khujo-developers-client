@@ -1,9 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 
-const Jobdetails = () => {
+const Updatejobs = () => {
     const job = useLoaderData();
-    const { recruiter, recruiter_mail,title, description , category, salary, posting_date, deadline, applicants } = job;
-    const handleApply = event => {
+    const {_id, recruiter_email, recruiter_name, applicant_email, applicant_name, job_title, category, salary, description, post_date, deadline, applicants } = job;
+    const handleUpdateProduct = event => {
         event.preventDefault();
         const form = event.target;
         const recruiter_name = form.recruiter_name.value;
@@ -14,43 +14,37 @@ const Jobdetails = () => {
         const category = form.category.value;
         const salary = form.salary.value;
         const description = form.description.value;
-        const post_date = form.date.value;
+        const post_date = form.post_date.value;
         const deadline = form.deadline.value;
         const applicants = form.applicants.value;
-
-        const application = {
-            recruiter_email,
-            recruiter_name,
-            applicant_email,
-            applicant_name,
-            job_title,
-            category,
-            salary,
-            description,
-            post_date,
-            deadline,
-            applicants
-        }
-        console.log(application);
-        fetch('http://localhost:5000/applications',{
-            method: 'POST',
+        const updatedApply = { recruiter_email, recruiter_name, applicant_email, applicant_name, job_title, category, salary, description, post_date, deadline, applicants };
+        fetch(`http://localhost:5000/applications/${_id}`, {
+            method: 'PUT',
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json'
             },
-            body: JSON.stringify(application)
+            body: JSON.stringify(updatedApply)
         })
-        .then( res => res.json())
-        .then(data => {
-            console.log(data)
-
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    // Swal.fire({
+                    //     title: 'Success!',
+                    //     text: 'Product Updated Successfully',
+                    //     icon: 'success',
+                    //     confirmButtonText: 'Cool'
+                    // })
+                    console.log('updated');
+                }
+            })
     }
     return (
         <div>
             <div className="mx-10 md:mx-14 lg:mx-20">
                 <h3 className="text-3xl text-center font-bold py-4">Start your first job at <span className="text-4xl text-green-600">KHUJO!</span></h3>
                 <div className="bg-green-50 border-2 border-green-400">
-                    <form onSubmit={handleApply}>
+                    <form onSubmit={handleUpdateProduct}>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-5">
                             {/* 1 */}
                             <div className="form-control  items-center">
@@ -59,7 +53,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Name</span>
-                                    <input type="text" defaultValue={recruiter} name="recruiter_name" placeholder="recruiter name" className="input input-bordered" />
+                                    <input type="text" defaultValue={recruiter_name} name="recruiter_name" placeholder="recruiter name" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 2 */}
@@ -69,7 +63,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Email</span>
-                                    <input type="email" defaultValue={recruiter_mail} name="recruiter_email" placeholder="recruiter email" className="input input-bordered" />
+                                    <input type="email" defaultValue={recruiter_email} name="recruiter_email" placeholder="recruiter email" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 1 */}
@@ -79,7 +73,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Name</span>
-                                    <input type="text"  name="applicant_name" placeholder="applicant name" className="input input-bordered" />
+                                    <input type="text" defaultValue={applicant_name} name="applicant_name" placeholder="applicant name" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 2 */}
@@ -89,7 +83,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Email</span>
-                                    <input type="email"  name="applicant_email" placeholder="applicant email" className="input input-bordered" />
+                                    <input type="email" defaultValue={applicant_email} name="applicant_email" placeholder="applicant email" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 3 */}
@@ -99,7 +93,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Job</span>
-                                    <input type="text" defaultValue={title} name="job_title" placeholder="job title" className="input input-bordered" />
+                                    <input type="text" defaultValue={job_title} name="job_title" placeholder="job title" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 4 */}
@@ -144,7 +138,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Date</span>
-                                    <input type="date" defaultValue={posting_date} name="date" placeholder="date" className="input input-bordered" />
+                                    <input type="date" defaultValue={post_date} name="post_date" placeholder="date" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 8 */}
@@ -164,12 +158,12 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Applicants</span>
-                                    <input disabled type="number" defaultValue={applicants} name="total" placeholder="zero" className="disable input input-bordered" />
+                                    <input type="number" defaultValue={applicants} name="applicants" placeholder="zero" className="disable input input-bordered" />
                                 </label>
                             </div>
                         </div>
                         <div className="p-5 text-center">
-                            <button type="submit" className="btn btn-wide justify-center bg-green-400 hover:bg-green-300 font-bold">Apply</button>
+                            <button type="submit" className="btn btn-wide justify-center bg-green-400 hover:bg-green-300 font-bold">Update</button>
                         </div>
                     </form>
                 </div>
@@ -178,4 +172,4 @@ const Jobdetails = () => {
     );
 };
 
-export default Jobdetails;
+export default Updatejobs;

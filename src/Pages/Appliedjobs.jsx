@@ -27,7 +27,7 @@ const Appliedjobs = () => {
     }, [])
     return (
         <div className="mx-20">
-            <h3 className="text-center text-4xl bg-purple-100 p-5 mb-8 font-semibold">See your applied jobs from <span className="text-4xl font-bold text-green-500">KHUJO</span></h3>
+            <h3 className="text-center text-4xl bg-purple-100 p-5 font-semibold">See your applied jobs from <span className="text-4xl font-bold text-green-500">KHUJO</span></h3>
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
                     jobs.map(job => <AppliedjobsCard
