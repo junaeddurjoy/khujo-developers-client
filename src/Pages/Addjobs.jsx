@@ -3,11 +3,48 @@ import { Authcontext } from "../providers/Authprovider";
 
 const Addjobs = () => {
     const { user } = useContext(Authcontext);
+    const handleAddjobs = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.recruiter.value;
+        const recruiter_mail = form.recruiter_mail.value;
+        const title = form.title.value;
+        const image = form.image.value;
+        const category = form.category.value;
+        const salary = form.salary.value;
+        const description = form.description.value;
+        const posting_date = form.posting_date.value;
+        const deadline = form.deadline.value;
+        const applicants = 0;
+
+        const newJob = { name, recruiter_mail, title, image, category, salary, description, posting_date, applicants, deadline };
+        console.log(newJob);
+        fetch('http://localhost:5000/jobs', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newJob)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    // Swal.fire({
+                    //     title: 'Success!',
+                    //     text: 'Product Added Successfully',
+                    //     icon: 'success',
+                    //     confirmButtonText: 'Cool'
+                    //   })
+                    console.log('added');
+                }
+            })
+    }
     return (
         <div className="mx-10 md:mx-14 lg:mx-20">
             <h3 className="text-3xl text-center font-bold py-4">Add a new job here at <span className="text-4xl text-green-600">KHUJO!</span></h3>
             <div className="bg-green-50 border-2 border-green-400">
-                <form>
+                <form onSubmit={handleAddjobs}>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-5">
                         {/* 1 */}
                         <div className="form-control  items-center">
@@ -16,7 +53,7 @@ const Addjobs = () => {
                             </label>
                             <label className="input-group justify-center">
                                 <span>Name</span>
-                                <input type="text" defaultValue={user.displayName} placeholder="recruiter name" className="input input-bordered" />
+                                <input type="text" defaultValue={user.displayName} name="recruiter" placeholder="recruiter name" className="input input-bordered" />
                             </label>
                         </div>
                         {/* 2 */}
@@ -26,7 +63,7 @@ const Addjobs = () => {
                             </label>
                             <label className="input-group justify-center">
                                 <span>Email</span>
-                                <input type="email" defaultValue={user.email} placeholder="recruiter email" className="input input-bordered" />
+                                <input type="email" defaultValue={user.email} name="recruiter_mail" placeholder="recruiter email" className="input input-bordered" />
                             </label>
                         </div>
                         {/* 3 */}
@@ -36,7 +73,17 @@ const Addjobs = () => {
                             </label>
                             <label className="input-group justify-center">
                                 <span>Job</span>
-                                <input type="text" placeholder="job title" className="input input-bordered" />
+                                <input type="text" name="title" placeholder="job title" className="input input-bordered" />
+                            </label>
+                        </div>
+                        {/* 3 */}
+                        <div className="form-control  items-center">
+                            <label className="label">
+                                <span className="label-text font-bold text-xl">Image URL</span>
+                            </label>
+                            <label className="input-group justify-center">
+                                <span>Job</span>
+                                <input type="text" name="image" placeholder="image" className="input input-bordered" />
                             </label>
                         </div>
                         {/* 4 */}
@@ -46,7 +93,7 @@ const Addjobs = () => {
                             </label>
                             <label className="input-group justify-center">
                                 <span>Category</span>
-                                <select className="input input-bordered">
+                                <select name="category" className="input input-bordered">
                                     <option name="onsite" id="">On Site</option>
                                     <option name="remote" id="">Remote</option>
                                     <option name="parttime" id="">Part Time</option>
@@ -61,7 +108,7 @@ const Addjobs = () => {
                             </label>
                             <label className="input-group justify-center">
                                 <span>Salary</span>
-                                <input type="text" placeholder="salary" className="input input-bordered" />
+                                <input type="text" name="salary" placeholder="salary" className="input input-bordered" />
                             </label>
                         </div>
                         {/* 6 */}
@@ -71,7 +118,7 @@ const Addjobs = () => {
                             </label>
                             <label className="input-group justify-center">
                                 <span>Description</span>
-                                <input type="text" placeholder="description" className="input input-bordered" />
+                                <input type="text" name="description" placeholder="description" className="input input-bordered" />
                             </label>
                         </div>
                         {/* 7 */}
@@ -81,7 +128,7 @@ const Addjobs = () => {
                             </label>
                             <label className="input-group justify-center">
                                 <span>Date</span>
-                                <input type="date" placeholder="date" className="input input-bordered" />
+                                <input type="date" name="posting_date" placeholder="date" className="input input-bordered" />
                             </label>
                         </div>
                         {/* 8 */}
@@ -91,17 +138,7 @@ const Addjobs = () => {
                             </label>
                             <label className="input-group justify-center">
                                 <span>Deadline</span>
-                                <input type="date" placeholder="deadline" className="input input-bordered" />
-                            </label>
-                        </div>
-                        {/* 9 */}
-                        <div className="form-control  items-center">
-                            <label className="label">
-                                <span className="label-text font-bold text-xl">Total Applicants</span>
-                            </label>
-                            <label className="input-group justify-center">
-                                <span>Applicants</span>
-                                <input type="number" placeholder="zero" className="input input-bordered" />
+                                <input type="date" name="deadline" placeholder="deadline" className="input input-bordered" />
                             </label>
                         </div>
                     </div>
