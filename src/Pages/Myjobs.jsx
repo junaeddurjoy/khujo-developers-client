@@ -6,7 +6,7 @@ const Myjobs = () => {
     const handleDelete = id => {
         const proceed = confirm ('Kardu??');
         if(proceed){
-            fetch(`http://localhost:5000/applications/${id}`, {
+            fetch(`http://localhost:5000/jobs/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -14,7 +14,7 @@ const Myjobs = () => {
                 console.log(data);
                 if(data.deletedCount>0){
                     alert('delete success');
-                    const remaining = jobs.filter(application => application._id !== id );
+                    const remaining = jobs.filter(job => job._id !== id );
                     setJobs(remaining);
                 }
             })
