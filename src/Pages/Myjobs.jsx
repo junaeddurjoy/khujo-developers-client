@@ -44,7 +44,7 @@ const Myjobs = () => {
     return (
         <div className="mx-20">
             <h3 className="text-center text-4xl bg-purple-100 p-5 font-semibold mb-8">See your jobs from <span className="text-4xl font-bold text-green-500">KHUJO</span></h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
                     jobs.map(job => <MyjobsCard
                         key={job.job_id}
@@ -52,7 +52,23 @@ const Myjobs = () => {
                         handleDelete={handleDelete}
                     ></MyjobsCard>)
                 }
-            </div>
+            </div> */}
+            <table className="mt-10 text-center mx-auto border-separate border-spacing-2">
+                <tr className="">
+                    <td className="text-xl font-bold bg-green-400 p-3">Title</td>
+                    <td className="text-xl font-bold bg-green-400 p-3">Deadline</td>
+                    <td className="text-xl font-bold bg-green-400 p-3">Salary</td>
+                    <td className="text-xl font-bold bg-green-400 p-3">Category</td>
+                    <td className="text-xl font-bold bg-green-400 p-3">Action</td>
+                </tr>
+                {
+                    jobs.map(job => <MyjobsCard
+                        key={job.job_id}
+                        job={job}
+                        handleDelete={handleDelete}
+                    ></MyjobsCard>)
+                }
+            </table>
         </div>
     );
 };

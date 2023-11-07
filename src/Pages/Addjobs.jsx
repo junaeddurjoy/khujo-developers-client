@@ -11,6 +11,7 @@ const Addjobs = () => {
         const recruiter_mail = form.recruiter_mail.value;
         const title = form.title.value;
         const image = form.image.value;
+        // const banner = form.banner.value;
         const category = form.category.value;
         const salary = form.salary.value;
         const description = form.description.value;
@@ -18,7 +19,7 @@ const Addjobs = () => {
         const deadline = form.deadline.value;
         const applicants = 0;
 
-        const newJob = { name, recruiter_mail, title, image, category, salary, description, posting_date, applicants, deadline };
+        const newJob = { name, recruiter_mail, title, image,  category, salary, description, posting_date, applicants, deadline };
         console.log(newJob);
         fetch('http://localhost:5000/jobs', {
             method: 'POST',
@@ -83,10 +84,19 @@ const Addjobs = () => {
                                 <span className="label-text font-bold text-xl">Image URL</span>
                             </label>
                             <label className="input-group justify-center">
-                                <span>Job</span>
+                                <span>Logo</span>
                                 <input type="text" name="image" placeholder="image" className="input input-bordered" />
                             </label>
                         </div>
+                        {/* <div className="form-control  items-center">
+                            <label className="label">
+                                <span className="label-text font-bold text-xl">Banner URL</span>
+                            </label>
+                            <label className="input-group justify-center">
+                                <span>Banner</span>
+                                <input type="text" name="banner" placeholder="image" className="input input-bordered" />
+                            </label>
+                        </div> */}
                         {/* 4 */}
                         <div className="form-control items-center">
                             <label className="label ">

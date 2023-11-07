@@ -17,7 +17,7 @@ const Alljobs = () => {
     };
 
     return (
-        <div className='mx-20'>
+        <div className='mx-10'>
             <form className="form-control bg-purple-200" onSubmit={handleSearch}>
                 <label className="label justify-center">
                     <span className="label-text text-5xl font-bold">Discover your dream job with <span className='text-green-400'>KHUJO!</span> </span>

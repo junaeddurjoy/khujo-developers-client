@@ -1,6 +1,6 @@
 import Banner from "../Components/Banner";
 import Extra from "../Components/Extra";
-
+import Marquee from "react-fast-marquee";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Jobs from "../Components/Jobs";
@@ -10,12 +10,15 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Extra></Extra>
+
+            <Marquee>
+                <Extra></Extra>
+            </Marquee>
             <div className="mx-10 pt-5 pb-10">
-            <Jobs></Jobs>
+                <Jobs></Jobs>
             </div>
             <div className="bg-green-50">
-                
+
                 <Tabs className={'text-bold'}>
                     <TabList>
                         <Tab>All Jobs</Tab>
@@ -25,26 +28,26 @@ const Home = () => {
                         <Tab>Part Time Jobs</Tab>
                     </TabList>
 
-                    
-                        <TabPanel>
-                            
-                        </TabPanel>
-                        <TabPanel>
-                            <h2>Any content 2</h2>
-                        </TabPanel>
-                        <TabPanel>
-                            <h2>Any content 3</h2>
-                        </TabPanel>
-                        <TabPanel>
-                            <h2>Any content 4</h2>
-                        </TabPanel>
-                        <TabPanel>
-                            <h2>Any content 5</h2>
-                        </TabPanel>
+
+                    <TabPanel>
+
+                    </TabPanel>
+                    <TabPanel>
+                        <h2>Any content 2</h2>
+                    </TabPanel>
+                    <TabPanel>
+                        <h2>Any content 3</h2>
+                    </TabPanel>
+                    <TabPanel>
+                        <h2>Any content 4</h2>
+                    </TabPanel>
+                    <TabPanel>
+                        <h2>Any content 5</h2>
+                    </TabPanel>
                 </Tabs>
                 <Extras></Extras>
             </div>
-            
+
 
         </div>
     );

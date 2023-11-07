@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-
+import { Authcontext } from "../providers/Authprovider";
+import Swal from 'sweetalert2'
 const Jobdetails = () => {
+    const { user } = useContext(Authcontext);
     const job = useLoaderData();
-    const { name, recruiter_mail,title, description , category, salary, posting_date, deadline, applicants } = job;
+    const { name, image, recruiter_mail, title, description, category, salary, posting_date, deadline, applicants } = job;
+
     const handleApply = event => {
         event.preventDefault();
         const form = event.target;
@@ -16,7 +20,7 @@ const Jobdetails = () => {
         const description = form.description.value;
         const post_date = form.date.value;
         const deadline = form.deadline.value;
-        const applicants = form.applicants.value;
+        const applicants = 1;
 
         const application = {
             recruiter_email,
@@ -32,27 +36,42 @@ const Jobdetails = () => {
             applicants
         }
         console.log(application);
-        fetch('http://localhost:5000/applications',{
+        fetch('http://localhost:5000/applications', {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(application)
         })
-        .then( res => res.json())
-        .then(data => {
-            console.log(data)
-
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Job Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                      })
+                    console.log('added');
+                }
+            })
     }
     return (
         <div>
             <div className="mx-10 md:mx-14 lg:mx-20">
                 <h3 className="text-3xl text-center font-bold py-4">Start your first job at <span className="text-4xl text-green-600">KHUJO!</span></h3>
                 <div className="bg-green-50 border-2 border-green-400">
+                    {/* <img src={banner} alt="" /> */}
                     <form onSubmit={handleApply}>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-5">
                             {/* 1 */}
+                            <div className="form-control  items-center">
+
+                                <figure>
+                                    <img className="h-40 w-60" src={image} alt="" />
+                                </figure>
+                            </div>
                             <div className="form-control  items-center">
                                 <label className="label ">
                                     <span className="label-text font-bold text-xl">Recruiter</span>
@@ -72,26 +91,7 @@ const Jobdetails = () => {
                                     <input type="email" defaultValue={recruiter_mail} name="recruiter_email" placeholder="recruiter email" className="input input-bordered" />
                                 </label>
                             </div>
-                            {/* 1 */}
-                            <div className="form-control  items-center">
-                                <label className="label ">
-                                    <span className="label-text font-bold text-xl">Applicant</span>
-                                </label>
-                                <label className="input-group justify-center">
-                                    <span>Name</span>
-                                    <input type="text"  name="applicant_name" placeholder="applicant name" className="input input-bordered" />
-                                </label>
-                            </div>
-                            {/* 2 */}
-                            <div className="form-control  items-center">
-                                <label className="label">
-                                    <span className="label-text font-bold text-xl">Applicant Email</span>
-                                </label>
-                                <label className="input-group justify-center">
-                                    <span>Email</span>
-                                    <input type="email"  name="applicant_email" placeholder="applicant email" className="input input-bordered" />
-                                </label>
-                            </div>
+
                             {/* 3 */}
                             <div className="form-control  items-center">
                                 <label className="label">
@@ -99,7 +99,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Job</span>
-                                    <input type="text" defaultValue={title} name="job_title" placeholder="job title" className="input input-bordered" />
+                                    <input type="text"  defaultValue={title} name="job_title" placeholder="job title" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 4 */}
@@ -154,7 +154,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Deadline</span>
-                                    <input type="date" defaultValue={deadline} name="deadline" placeholder="deadline" className="input input-bordered" />
+                                    <input type="date"  defaultValue={deadline} name="deadline" placeholder="deadline" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 9 */}
@@ -164,13 +164,40 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Applicants</span>
-                                    <input disabled type="number" defaultValue={applicants} name="total" placeholder="zero" className="disable input input-bordered" />
+                                    <input  type="number" defaultValue={applicants} name="total" placeholder="zero" className="disable input input-bordered" />
+                                </label>
+                            </div>
+                            {/* 1 */}
+                            <div className="form-control  items-center">
+                                <label className="label ">
+                                    <span className="label-text font-bold text-xl">Applicant</span>
+                                </label>
+                                <label className="input-group justify-center">
+                                    <span>Name</span>
+                                    <input type="text" defaultValue={user?.displayName} required name="applicant_name" placeholder="applicant name" className="input input-bordered" />
+                                </label>
+                            </div>
+                            {/* 2 */}
+                            <div className="form-control  items-center">
+                                <label className="label">
+                                    <span className="label-text font-bold text-xl">Applicant Email</span>
+                                </label>
+                                <label className="input-group justify-center">
+                                    <span>Email</span>
+                                    <input type="email" defaultValue={user?.email} required name="applicant_email" placeholder="applicant email" className="input input-bordered" />
                                 </label>
                             </div>
                         </div>
-                        <div className="p-5 text-center">
-                            <button type="submit" className="btn btn-wide justify-center bg-green-400 hover:bg-green-300 font-bold">Apply</button>
-                        </div>
+                        {
+                            user?.email == recruiter_mail ?
+                                <div className="p-5 text-center">
+                                    <button type="submit" disabled className="btn btn-wide justify-center bg-green-400 hover:bg-green-300 font-bold">Apply</button>
+                                </div>
+                                :
+                                <div className="p-5 text-center">
+                                    <button type="submit" className="btn btn-wide justify-center bg-green-400 hover:bg-green-300 font-bold">Apply</button>
+                                </div>
+                        }
                     </form>
                 </div>
             </div>

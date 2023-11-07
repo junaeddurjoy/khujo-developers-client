@@ -10,24 +10,6 @@ const Appliedjobs = () => {
         const searched = form.search.value;
         setSearch(searched);
     };
-    
-    // const handleDelete = id => {
-    //     const proceed = confirm('Kardu??');
-    //     if (proceed) {
-    //         fetch(`http://localhost:5000/applications/${id}`, {
-    //             method: 'DELETE'
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 console.log(data);
-    //                 if (data.deletedCount > 0) {
-    //                     alert('delete success');
-    //                     const remaining = jobs.filter(application => application._id !== id);
-    //                     setJobs(remaining);
-    //                 }
-    //             })
-    //     }
-    // }
     useEffect(() => {
         fetch('http://localhost:5000/applications')
             .then(res => res.json())
@@ -44,7 +26,7 @@ const Appliedjobs = () => {
                     <button className='p-4 bg-green-400 font-bold hover:bg-green-300 hover:text-white' type="submit">Search</button>
                 </label>
             </form>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
                     jobs.map(job => <AppliedjobsCard
                         key={job.job_id}
@@ -53,7 +35,23 @@ const Appliedjobs = () => {
                         search={search}
                     ></AppliedjobsCard>)
                 }
-            </div>
+            </div> */}
+            <table className="mt-10 text-center mx-auto border-separate border-spacing-2">
+                <tr className="">
+                    <td className="bg-green-300 p-3">Title</td>
+                    <td className="bg-green-300 p-3">Deadline</td>
+                    <td className="bg-green-300 p-3">Salary</td>
+                    <td className="bg-green-300 p-3">Category</td>
+                </tr>
+                {
+                    jobs.map(job => <AppliedjobsCard
+                        key={job.job_id}
+                        job={job}
+                        // handleDelete={handleDelete}
+                        search={search}
+                    ></AppliedjobsCard>)
+                }
+            </table>
         </div>
     );
 };

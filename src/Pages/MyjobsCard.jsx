@@ -1,54 +1,29 @@
 import { useContext } from "react";
 import { Authcontext } from "../providers/Authprovider";
 import { Link } from "react-router-dom";
-import { CiLocationOn } from "react-icons/ci";
 
 const MyjobsCard = ({ job, handleDelete }) => {
     const { user } = useContext(Authcontext);
-    // const { _id, recruiter_email, applicant_name, applicant_email, deadline, salary, description, job_title, category } = job;
     const { _id, title, recruiter_mail, name, category, salary } = job;
     return (
-        <div>
-            {/* <img className="h-32 w-40" src={image} alt="" /> */}
+        <tr>
+
             {
                 user?.email == recruiter_mail &&
-                // <div className="bg-white hover:bg-green-50 hover:shadow-2xl rounded-2xl hover:border-2 hover:border-green-500">
-                //     <h1 className="text-3xl my-2 font-bold ml-5">{job_title}</h1>
-                //     <div className="items-center mb-5">
-                //         <p className="ml-5 text-xl"><span className='text-2xl font-semibold'>Applicant Name: </span>{applicant_name}</p>
-                //         <p className="ml-5 text-xl"><span className='text-2xl font-semibold'>Applicant Email: </span>{applicant_email}</p>
-                //         <p className="ml-5 text-xl"><span className='text-2xl font-semibold'>Application Deadline: </span>{deadline}</p>
-                //         <p className="ml-5 text-xl"><span className='text-2xl font-semibold'>Salary: </span>{salary}</p>
-                //         <p className="ml-5 text-xl"><span className='text-2xl font-semibold'>Description: </span>{description}</p>
-                //         <p className="ml-5 text-xl"><span className='text-2xl font-semibold'>Job Category: </span>{category}</p>
-                //         <button onClick={() => handleDelete(_id)} className="btn btn-error w-3/4 ml-12 mt-4 bg-red-500 hover:bg-red-300">Delete</button>
-                //         <Link to={`/updatejobs/${_id}`}>
-                //             <button className="btn btn-error w-3/4 ml-12 mt-4 bg-yellow-300 hover:bg-yellow-100">Update</button>
-                //         </Link>
-                //     </div>
-
-                <div>
-                    <div className="bg-white hover:bg-green-50 hover:shadow-2xl rounded-2xl hover:border-2 hover:border-green-500">
-                        {/* <img className="h-32 w-40" src={image} alt="" /> */}
-                        
-                        <h1 className="text-3xl my-2 font-bold ml-5">{title}</h1>
-                        <div className="flex ml-5 items-center">
-                            <CiLocationOn className="text-2xl text-green-700 font-extrabold"></CiLocationOn>
-                            <p className="text-2xl">{name}</p>
-                            <h2 className="text-xl ml-5">{category}</h2>
-                        </div>
-                        <div className="ml-5 mb-7 mt-3">
-                            <span className="font-semibold text-3xl">{salary}/</span>month
-                    
-                        </div>
-                        <button onClick={() => handleDelete(_id)} className="btn btn-error w-3/4 ml-12 mt-4 bg-red-500 hover:bg-red-300">Delete</button>
+                <>
+                    <td className="bg-green-300 p-3">{name}</td>
+                    <td className="bg-green-300 p-3">{title}</td>
+                    <td className="bg-green-300 p-3">{salary}</td>
+                    <td className="bg-green-300 p-3">{category}</td>
+                    <td className="bg-green-300 p-3">
+                        <button onClick={() => handleDelete(_id)} className="bg-red-400 p-2 rounded-lg text-white" >Delete</button>
                         <Link to={`/updatejobs/${_id}`}>
-                            <button className="btn btn-error w-3/4 ml-12 mt-4 bg-yellow-300 hover:bg-yellow-100">Update</button>
+                            <button className="bg-purple-400 ml-2 p-2 rounded-lg text-white" >Update</button>
                         </Link>
-                    </div>
-                </div>
+                    </td>
+                </>
             }
-        </div >
+        </tr>
 
 
     );
