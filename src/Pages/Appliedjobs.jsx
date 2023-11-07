@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import AppliedjobsCard from "./AppliedjobsCard";
+import { usePDF } from 'react-to-pdf';
+import { FcDownload } from 'react-icons/fc';
 
 const Appliedjobs = () => {
+    const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
     const [jobs, setJobs] = useState([]);
     const [search, setSearch] = useState();
     const handleSearch = (event) => {
@@ -26,17 +29,7 @@ const Appliedjobs = () => {
                     <button className='p-4 bg-green-400 font-bold hover:bg-green-300 hover:text-white' type="submit">Search</button>
                 </label>
             </form>
-            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                {
-                    jobs.map(job => <AppliedjobsCard
-                        key={job.job_id}
-                        job={job}
-                        // handleDelete={handleDelete}
-                        search={search}
-                    ></AppliedjobsCard>)
-                }
-            </div> */}
-            <table className="mt-10 text-center mx-auto border-separate border-spacing-2">
+            <table ref={targetRef} className="mt-10 text-center mx-auto border-separate border-spacing-2">
                 <tr className="">
                     <td className="bg-green-300 p-3">Title</td>
                     <td className="bg-green-300 p-3">Deadline</td>
@@ -52,6 +45,7 @@ const Appliedjobs = () => {
                     ></AppliedjobsCard>)
                 }
             </table>
+            <button onClick={() => toPDF()} className="btn btn-outline btn-success"><FcDownload className="text-4xl"></FcDownload></button>
         </div>
     );
 };

@@ -6,7 +6,7 @@ const Blogs = () => {
                 <section className='py-5 px-20 text-center'>
                     <div className='text-center mb-10'>
                         <figure>
-                            <img className='pl-[200px] h-[500px] w-[1100px] ' src={'https://assets-global.website-files.com/6410ebf8e483b5bb2c86eb27/6410ebf8e483b53d6186fc53_ABM%20College%20Web%20developer%20main.jpg'} alt='' />
+                            <img className='h-[500px] w-[1100px] mx-auto ' src={'https://assets-global.website-files.com/6410ebf8e483b5bb2c86eb27/6410ebf8e483b53d6186fc53_ABM%20College%20Web%20developer%20main.jpg'} alt='' />
                         </figure>
                     </div>
                     <div className="bg-red-100 p-10 mb-5">
