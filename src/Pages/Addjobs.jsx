@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Authcontext } from "../providers/Authprovider";
+import Swal from 'sweetalert2'
 
 const Addjobs = () => {
     const { user } = useContext(Authcontext);
@@ -30,12 +31,12 @@ const Addjobs = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    // Swal.fire({
-                    //     title: 'Success!',
-                    //     text: 'Product Added Successfully',
-                    //     icon: 'success',
-                    //     confirmButtonText: 'Cool'
-                    //   })
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Job Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                      })
                     console.log('added');
                 }
             })

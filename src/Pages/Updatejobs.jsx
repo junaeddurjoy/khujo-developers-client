@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const Updatejobs = () => {
     const job = useLoaderData();
@@ -27,12 +28,12 @@ const Updatejobs = () => {
             .then(data => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
-                    // Swal.fire({
-                    //     title: 'Success!',
-                    //     text: 'Product Updated Successfully',
-                    //     icon: 'success',
-                    //     confirmButtonText: 'Cool'
-                    // })
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Job Updated Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
                     console.log('updated');
                 }
             })
