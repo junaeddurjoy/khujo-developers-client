@@ -3,48 +3,46 @@ import { useLoaderData } from "react-router-dom";
 const Updatejobs = () => {
     const job = useLoaderData();
     const {_id,  name, recruiter_mail, title, category, salary, description, posting_date, applicants, deadline  } = job;
-    // const handleUpdateProduct = event => {
-    //     event.preventDefault();
-    //     const form = event.target;
-    //     const recruiter_name = form.recruiter_name.value;
-    //     const recruiter_email = form.recruiter_email.value;
-    //     const applicant_email = form.applicant_email.value;
-    //     const applicant_name = form.applicant_name.value;
-    //     const job_title = form.job_title.value;
-    //     const category = form.category.value;
-    //     const salary = form.salary.value;
-    //     const description = form.description.value;
-    //     const post_date = form.post_date.value;
-    //     const deadline = form.deadline.value;
-    //     const applicants = form.applicants.value;
-    //     const updatedApply = { recruiter_email, recruiter_name, applicant_email, applicant_name, job_title, category, salary, description, post_date, deadline, applicants };
-    //     fetch(`http://localhost:5000/applications/${_id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(updatedApply)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             if (data.modifiedCount > 0) {
-    //                 // Swal.fire({
-    //                 //     title: 'Success!',
-    //                 //     text: 'Product Updated Successfully',
-    //                 //     icon: 'success',
-    //                 //     confirmButtonText: 'Cool'
-    //                 // })
-    //                 console.log('updated');
-    //             }
-    //         })
-    // }
+    const handleUpdateJob = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const recruiter_mail = form.recruiter_mail.value;
+        const title = form.title.value;
+        const category = form.category.value;
+        const salary = form.salary.value;
+        const description = form.description.value;
+        const posting_date = form.posting_date.value;
+        const deadline = form.deadline.value;
+        const applicants =  form.applicants.value;
+        const updatedApply = { name, recruiter_mail, title, category, salary, description, posting_date, applicants, deadline };
+        fetch(`http://localhost:5000/jobs/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedApply)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    // Swal.fire({
+                    //     title: 'Success!',
+                    //     text: 'Product Updated Successfully',
+                    //     icon: 'success',
+                    //     confirmButtonText: 'Cool'
+                    // })
+                    console.log('updated');
+                }
+            })
+    }
     return (
         <div>
             <div className="mx-10 md:mx-14 lg:mx-20">
                 <h3 className="text-3xl text-center font-bold py-4">Start your first job at <span className="text-4xl text-green-600">KHUJO!</span></h3>
                 <div className="bg-green-50 border-2 border-green-400">
-                    <form>
+                    <form onSubmit={handleUpdateJob}>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-5">
                             {/* 1 */}
                             <div className="form-control  items-center">
@@ -53,7 +51,7 @@ const Updatejobs = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Name</span>
-                                    <input type="text" defaultValue={name} name="recruiter_name" placeholder="recruiter name" className="input input-bordered" />
+                                    <input type="text" defaultValue={name} name="name" placeholder="recruiter name" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 2 */}
@@ -63,7 +61,7 @@ const Updatejobs = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Email</span>
-                                    <input type="email" defaultValue={recruiter_mail} name="recruiter_email" placeholder="recruiter email" className="input input-bordered" />
+                                    <input type="email" defaultValue={recruiter_mail} name="recruiter_mail" placeholder="recruiter email" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 3 */}
@@ -73,7 +71,7 @@ const Updatejobs = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Job</span>
-                                    <input type="text" defaultValue={title} name="job_title" placeholder="job title" className="input input-bordered" />
+                                    <input type="text" defaultValue={title} name="title" placeholder="job title" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 4 */}
@@ -118,7 +116,7 @@ const Updatejobs = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Date</span>
-                                    <input type="date" defaultValue={posting_date} name="post_date" placeholder="date" className="input input-bordered" />
+                                    <input type="date" defaultValue={posting_date} name="posting_date" placeholder="date" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 8 */}
