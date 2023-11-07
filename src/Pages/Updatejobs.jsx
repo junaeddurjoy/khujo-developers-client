@@ -1,9 +1,10 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 const Updatejobs = () => {
     const job = useLoaderData();
-    const {_id,  name, recruiter_mail, title, category, salary, description, posting_date, applicants, deadline  } = job;
+    const { _id, name, recruiter_mail, title, category, salary, description, posting_date, applicants, deadline } = job;
     const handleUpdateJob = event => {
         event.preventDefault();
         const form = event.target;
@@ -15,7 +16,7 @@ const Updatejobs = () => {
         const description = form.description.value;
         const posting_date = form.posting_date.value;
         const deadline = form.deadline.value;
-        const applicants =  form.applicants.value;
+        const applicants = form.applicants.value;
         const updatedApply = { name, recruiter_mail, title, category, salary, description, posting_date, applicants, deadline };
         fetch(`http://localhost:5000/jobs/${_id}`, {
             method: 'PUT',
@@ -40,6 +41,9 @@ const Updatejobs = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Khujo | Update Jobs</title>
+            </Helmet>
             <div className="mx-10 md:mx-14 lg:mx-20">
                 <h3 className="text-3xl text-center font-bold py-4">Start your first job at <span className="text-4xl text-green-600">KHUJO!</span></h3>
                 <div className="bg-green-50 border-2 border-green-400">

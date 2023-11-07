@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import MyjobsCard from "./MyjobsCard";
 import Swal from 'sweetalert2'
+import { motion } from "framer-motion"
+import { Helmet } from "react-helmet-async";
 
 const Myjobs = () => {
+
     const [jobs, setJobs] = useState([]);
     const handleDelete = id => {
         Swal.fire({
@@ -43,6 +46,9 @@ const Myjobs = () => {
     }, [])
     return (
         <div className="mx-20">
+            <Helmet>
+                <title>Khujo | My Jobs</title>
+            </Helmet>
             <h3 className="text-center text-4xl bg-purple-100 p-5 font-semibold mb-8">See your jobs from <span className="text-4xl font-bold text-green-500">KHUJO</span></h3>
             {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
@@ -53,6 +59,14 @@ const Myjobs = () => {
                     ></MyjobsCard>)
                 }
             </div> */}
+            <motion.div
+                whileHover={{ scale: 1.2, rotate: 90 }}
+                whileTap={{
+                    scale: 0.8,
+                    rotate: -90,
+                    borderRadius: "100%"
+                }}
+            />
             <table className="mt-10 text-center mx-auto border-separate border-spacing-2">
                 <tr className="">
                     <td className="text-xl font-bold bg-green-400 p-3">Title</td>

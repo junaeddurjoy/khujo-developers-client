@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { Authcontext } from "../providers/Authprovider";
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
     const { user } = useContext(Authcontext);
     return (
-        <div className="justify-center">  
+        <div className="justify-center">
+            <Helmet>
+                <title>Khujo | My Profile</title>
+            </Helmet>
             <div className="card lg:card-side bg-base-100 shadow-xl">
                 <figure><img src={user.photoURL} alt="Album" /></figure>
                 <div className="card-body">

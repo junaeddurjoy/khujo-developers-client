@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Authcontext } from "../providers/Authprovider";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet-async";
 
 const Addjobs = () => {
     const { user } = useContext(Authcontext);
@@ -19,7 +20,7 @@ const Addjobs = () => {
         const deadline = form.deadline.value;
         const applicants = 0;
 
-        const newJob = { name, recruiter_mail, title, image,  category, salary, description, posting_date, applicants, deadline };
+        const newJob = { name, recruiter_mail, title, image, category, salary, description, posting_date, applicants, deadline };
         console.log(newJob);
         fetch('http://localhost:5000/jobs', {
             method: 'POST',
@@ -37,13 +38,16 @@ const Addjobs = () => {
                         text: 'Job Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
-                      })
+                    })
                     console.log('added');
                 }
             })
     }
     return (
         <div className="mx-10 md:mx-14 lg:mx-20">
+            <Helmet>
+                <title>Khujo | Add Jobs</title>
+            </Helmet>
             <h3 className="text-3xl text-center font-bold py-4">Add a new job here at <span className="text-4xl text-green-600">KHUJO!</span></h3>
             <div className="bg-green-50 border-2 border-green-400">
                 <form onSubmit={handleAddjobs}>

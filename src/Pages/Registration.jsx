@@ -3,9 +3,10 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Authcontext } from "../providers/Authprovider";
 import { getAuth, updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const Registration = () => {
-    const {createUser} = useContext(Authcontext);
+    const { createUser } = useContext(Authcontext);
     const [regError, setregError] = useState('');
     const [regSuccess, setregSuccess] = useState('');
 
@@ -34,19 +35,19 @@ const Registration = () => {
 
         createUser(email, password, displayName, photoURL)
             .then(result => {
-                console.log("fffffffffffffffffffffffffffffff",result.user)
+                console.log("fffffffffffffffffffffffffffffff", result.user)
                 setregSuccess("User Created")
                 const auth = getAuth();
                 updateProfile(auth.currentUser, {
-                    displayName: displayName , photoURL: photoURL
+                    displayName: displayName, photoURL: photoURL
                 }).then(() => {
                     // Profile updated!
                     // ...
                     console.log("user updated")
-                }).catch((error) => {   
+                }).catch((error) => {
                     // console.log(error);
                 });
-                console.log("ggggggggggggggggggggg",result.user)
+                console.log("ggggggggggggggggggggg", result.user)
 
             })
             .catch(error => {
@@ -54,9 +55,12 @@ const Registration = () => {
                 setregError(error.message);
             })
     }
-    
+
     return (
         <div>
+            <Helmet>
+                <title>Khujo | Registration</title>
+            </Helmet>
             <h1 className="text-5xl font-bold -mb-20 mt-20 text-center">Sign Up Now!</h1>
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">

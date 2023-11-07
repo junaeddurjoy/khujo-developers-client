@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import AlljobsCard from '../Components/AlljobsCard';
+import { Helmet } from 'react-helmet-async';
 const Alljobs = () => {
     const [jobs, setJobs] = useState([]);
 
@@ -18,6 +19,9 @@ const Alljobs = () => {
 
     return (
         <div className='mx-10'>
+            <Helmet>
+                <title>Khujo | All Jobs</title>
+            </Helmet>
             <form className="form-control bg-purple-200" onSubmit={handleSearch}>
                 <label className="label justify-center">
                     <span className="label-text text-5xl font-bold">Discover your dream job with <span className='text-green-400'>KHUJO!</span> </span>

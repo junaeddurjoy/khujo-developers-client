@@ -12,7 +12,7 @@ import Profile from "../Pages/Profile";
 import Jobdetails from "../Pages/Jobdetails";
 import Updatejobs from "../Pages/Updatejobs";
 import Errorpage from "../Pages/Errorpage";
-
+import PrivateRoutes from "../PrivateRoute";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -25,19 +25,19 @@ const router = createBrowserRouter([
             },
             {
                 path: "/alljobs",
-                element: <Alljobs></Alljobs>
+                element: <Alljobs></Alljobs>,
             },
             {
                 path: "/appliedjobs",
-                element: <Appliedjobs></Appliedjobs>,
+                element: <PrivateRoutes><Appliedjobs></Appliedjobs></PrivateRoutes>,
             },
             {
                 path: "/addjobs",
-                element: <Addjobs></Addjobs>,
+                element: <PrivateRoutes><Addjobs></Addjobs></PrivateRoutes>,
             },
             {
                 path: "/myjobs",
-                element: <Myjobs></Myjobs>,
+                element: <PrivateRoutes><Myjobs></Myjobs></PrivateRoutes>,
             },
             {
                 path: "/blogs",
@@ -53,16 +53,16 @@ const router = createBrowserRouter([
             },
             {
                 path: "/profile",
-                element: <Profile></Profile>,
+                element: <PrivateRoutes><Profile></Profile></PrivateRoutes>,
             },
             {
                 path: "/jobdetails/:id",
-                element: <Jobdetails></Jobdetails>,
+                element: <PrivateRoutes><Jobdetails></Jobdetails></PrivateRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
             },
             {
                 path: "/updatejobs/:id",
-                element: <Updatejobs></Updatejobs>,
+                element: <PrivateRoutes><Updatejobs></Updatejobs></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/jobs/${params.id}`)
               },
         ]

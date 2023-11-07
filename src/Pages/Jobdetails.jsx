@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Authcontext } from "../providers/Authprovider";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet-async";
 const Jobdetails = () => {
     const { user } = useContext(Authcontext);
     const job = useLoaderData();
@@ -52,13 +53,16 @@ const Jobdetails = () => {
                         text: 'Job Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
-                      })
+                    })
                     console.log('added');
                 }
             })
     }
     return (
         <div>
+            <Helmet>
+                <title>Khujo | Job Details</title>
+            </Helmet>
             <div className="mx-10 md:mx-14 lg:mx-20">
                 <h3 className="text-3xl text-center font-bold py-4">Start your first job at <span className="text-4xl text-green-600">KHUJO!</span></h3>
                 <div className="bg-green-50 border-2 border-green-400">
@@ -99,7 +103,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Job</span>
-                                    <input type="text"  defaultValue={title} name="job_title" placeholder="job title" className="input input-bordered" />
+                                    <input type="text" defaultValue={title} name="job_title" placeholder="job title" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 4 */}
@@ -154,7 +158,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Deadline</span>
-                                    <input type="date"  defaultValue={deadline} name="deadline" placeholder="deadline" className="input input-bordered" />
+                                    <input type="date" defaultValue={deadline} name="deadline" placeholder="deadline" className="input input-bordered" />
                                 </label>
                             </div>
                             {/* 9 */}
@@ -164,7 +168,7 @@ const Jobdetails = () => {
                                 </label>
                                 <label className="input-group justify-center">
                                     <span>Applicants</span>
-                                    <input  type="number" defaultValue={applicants} name="total" placeholder="zero" className="disable input input-bordered" />
+                                    <input type="number" defaultValue={applicants} name="total" placeholder="zero" className="disable input input-bordered" />
                                 </label>
                             </div>
                             {/* 1 */}

@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet-async";
+
 const Blogs = () => {
     return (
         <div className='w-full'>
+            <Helmet>
+                <title>Khujo | Blogs</title>
+            </Helmet>
             <div className='text-center pb-10 pt-14'>
                 <h1 className='text-5xl font-bold'>Blogs of Junaed</h1>
                 <section className='py-5 px-20 text-center'>
@@ -33,7 +38,7 @@ const Blogs = () => {
 
                 </section>
             </div>
-            
+
         </div>
     );
 };

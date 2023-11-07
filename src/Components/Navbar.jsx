@@ -98,7 +98,6 @@ const Navbar = () => {
 
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-green-100 rounded-box w-52">
-                        <Link to={'/profile'}><li className="text-lg font-semibold hover:text-2xl">Profile</li></Link>
                         {
                             user ?
 

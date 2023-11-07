@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import AppliedjobsCard from "./AppliedjobsCard";
 import { usePDF } from 'react-to-pdf';
 import { FcDownload } from 'react-icons/fc';
+import { Helmet } from "react-helmet-async";
 
 const Appliedjobs = () => {
-    const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
+    const { toPDF, targetRef } = usePDF({ filename: 'page.pdf' });
     const [jobs, setJobs] = useState([]);
     const [search, setSearch] = useState();
     const handleSearch = (event) => {
@@ -20,7 +21,10 @@ const Appliedjobs = () => {
     }, [])
     return (
         <div className="mx-20 ">
-           <form className="form-control bg-purple-200" onSubmit={handleSearch}>
+            <Helmet>
+                <title>Khujo | Applied Jobs</title>
+            </Helmet>
+            <form className="form-control bg-purple-200" onSubmit={handleSearch}>
                 <label className="label justify-center">
                     <span className="label-text text-5xl font-bold">See your applied jobs from <span className='text-green-400'>KHUJO!</span> </span>
                 </label>
@@ -31,10 +35,10 @@ const Appliedjobs = () => {
             </form>
             <table ref={targetRef} className="mt-10 text-center mx-auto border-separate border-spacing-2">
                 <tr className="">
-                    <td className="bg-green-300 p-3">Title</td>
-                    <td className="bg-green-300 p-3">Deadline</td>
-                    <td className="bg-green-300 p-3">Salary</td>
-                    <td className="bg-green-300 p-3">Category</td>
+                    <td className="bg-green-300 p-3 font-bold">Title</td>
+                    <td className="bg-green-300 p-3 font-bold">Deadline</td>
+                    <td className="bg-green-300 p-3 font-bold">Salary</td>
+                    <td className="bg-green-300 p-3 font-bold">Category</td>
                 </tr>
                 {
                     jobs.map(job => <AppliedjobsCard

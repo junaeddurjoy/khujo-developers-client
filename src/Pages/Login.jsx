@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { Authcontext } from "../providers/Authprovider";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
     const {signIn} = useContext(Authcontext);
     const [user, setUser] = useState(null);
@@ -42,6 +43,9 @@ const Login = () => {
     }
     return (
         <div>
+                        <Helmet>
+                <title>Khujo | Login</title>
+            </Helmet>
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left ">
