@@ -11,11 +11,13 @@ import Registration from "../Pages/Registration";
 import Profile from "../Pages/Profile";
 import Jobdetails from "../Pages/Jobdetails";
 import Updatejobs from "../Pages/Updatejobs";
+import Errorpage from "../Pages/Errorpage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <Errorpage></Errorpage>,
         children: [
             {
                 path: "/",

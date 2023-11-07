@@ -4,13 +4,15 @@ import Extra from "../Components/Extra";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Jobs from "../Components/Jobs";
+import Extras from "../Components/Extras";
 const Home = () => {
 
     return (
         <div>
             <Banner></Banner>
+            <Extra></Extra>
             <div className="mx-10 pt-5 pb-10">
-                <Jobs></Jobs>
+            <Jobs></Jobs>
             </div>
             <div className="bg-green-50">
                 
@@ -40,8 +42,9 @@ const Home = () => {
                             <h2>Any content 5</h2>
                         </TabPanel>
                 </Tabs>
+                <Extras></Extras>
             </div>
-            <Extra></Extra>
+            
 
         </div>
     );

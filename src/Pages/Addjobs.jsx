@@ -53,7 +53,7 @@ const Addjobs = () => {
                             </label>
                             <label className="input-group justify-center">
                                 <span>Name</span>
-                                <input type="text" defaultValue={user.displayName} name="recruiter" placeholder="recruiter name" className="input input-bordered" />
+                                <input type="text" defaultValue={user?.displayName} name="recruiter" placeholder="recruiter name" className="input input-bordered" />
                             </label>
                         </div>
                         {/* 2 */}
@@ -63,7 +63,7 @@ const Addjobs = () => {
                             </label>
                             <label className="input-group justify-center">
                                 <span>Email</span>
-                                <input type="email" defaultValue={user.email} name="recruiter_mail" placeholder="recruiter email" className="input input-bordered" />
+                                <input type="email" defaultValue={user?.email} name="recruiter_mail" placeholder="recruiter email" className="input input-bordered" />
                             </label>
                         </div>
                         {/* 3 */}

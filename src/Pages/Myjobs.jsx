@@ -21,7 +21,7 @@ const Myjobs = () => {
         }
     }
     useEffect(() => {
-        fetch('http://localhost:5000/applications')
+        fetch('http://localhost:5000/jobs')
             .then(res => res.json())
             .then(data => setJobs(data));
     }, [])

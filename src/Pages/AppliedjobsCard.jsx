@@ -1,15 +1,14 @@
 import { useContext} from "react";
 import { Authcontext } from "../providers/Authprovider";
 
-const AppliedjobsCard = ({ job }) => {
+const AppliedjobsCard = ({ job, search="" }) => {
     const { user } = useContext(Authcontext);
     const {  applicant_name, applicant_email, deadline, salary, description, job_title, category } = job;
 
     return (
         <div>
-            {/* <img className="h-32 w-40" src={image} alt="" /> */}
             {
-                user.email == applicant_email &&
+                (user?.email == applicant_email && (search == category || search == "")) &&
                 <div className="bg-white hover:bg-green-50 mt-10 hover:shadow-2xl rounded-2xl hover:border-2 hover:border-green-500">
                     <h1 className="text-3xl my-2 font-bold ml-5">{job_title}</h1>
                     <div className="items-center mb-5">

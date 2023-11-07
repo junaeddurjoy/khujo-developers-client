@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { TbLogin2, TbLogin } from 'react-icons/tb'
 const Navbar = () => {
     const { user, logout } = useContext(Authcontext);
-    
+
     const handleSignOut = event => {
         logout()
             .then()
@@ -26,15 +26,26 @@ const Navbar = () => {
                             <Link to={'/alljobs'}>
                                 <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">All Jobs</div>
                             </Link>
-                            <Link to={'/appliedjobs'}>
-                                <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Applied Jobs</div>
-                            </Link>
-                            <Link to={'/addjobs'}>
-                                <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Add Jobs</div>
-                            </Link>
-                            <Link to={'/myjobs'}>
-                                <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">My Jobs</div>
-                            </Link>
+                            {
+                                user ?
+                                    <>
+                                        <Link to={'/appliedjobs'}>
+                                            <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Applied Jobs</div>
+                                        </Link>
+                                        <Link to={'/addjobs'}>
+                                            <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Add Jobs</div>
+                                        </Link>
+                                        <Link to={'/myjobs'}>
+                                            <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">My Jobs</div>
+                                        </Link>
+                                    </>
+                                    :
+                                    <>
+                                        <div>
+
+                                        </div>
+                                    </>
+                            }
                             <Link to={'/blogs'}>
                                 <div className="text-gray-800 hover:text-green-500 text-xl font-semibold ">Blogs</div>
                             </Link>
@@ -52,15 +63,22 @@ const Navbar = () => {
                     <Link to={'/alljobs'}>
                         <div className="text-gray-800 hover:text-white  hover:bg-green-400 p-2 rounded-lg text-xl hover:text-2xl font-semibold ">All Jobs</div>
                     </Link>
-                    <Link to={'/appliedjobs'}>
-                        <div className="text-gray-800 hover:text-white  hover:bg-green-400 p-2 rounded-lg text-xl hover:text-2xl font-semibold ">Applied Jobs</div>
-                    </Link>
-                    <Link to={'/addjobs'}>
-                        <div className="text-gray-800 hover:text-white  hover:bg-green-400 p-2 rounded-lg text-xl hover:text-2xl font-semibold ">Add Jobs</div>
-                    </Link>
-                    <Link to={'/myjobs'}>
-                        <div className="text-gray-800 hover:text-white  hover:bg-green-400 p-2 rounded-lg text-xl  hover:text-2xl font-semibold ">My Jobs</div>
-                    </Link>
+                    {
+                        user ?
+                            <>
+                                <Link to={'/appliedjobs'}>
+                                    <div className="text-gray-800 hover:text-white  hover:bg-green-400 p-2 rounded-lg text-xl hover:text-2xl font-semibold ">Applied Jobs</div>
+                                </Link>
+                                <Link to={'/addjobs'}>
+                                    <div className="text-gray-800 hover:text-white  hover:bg-green-400 p-2 rounded-lg text-xl hover:text-2xl font-semibold ">Add Jobs</div>
+                                </Link>
+                                <Link to={'/myjobs'}>
+                                    <div className="text-gray-800 hover:text-white  hover:bg-green-400 p-2 rounded-lg text-xl  hover:text-2xl font-semibold ">My Jobs</div>
+                                </Link>
+                            </>
+                            :
+                            <></>
+                    }
                     <Link to={'/blogs'}>
                         <div className="text-gray-800 hover:text-white hover:bg-green-400 p-2 rounded-lg text-xl hover:text-2xl font-semibold ">Blogs</div>
                     </Link>
@@ -83,13 +101,13 @@ const Navbar = () => {
                         <Link to={'/profile'}><li className="text-lg font-semibold hover:text-2xl">Profile</li></Link>
                         {
                             user ?
-                                <Link>
-                                    <li className="text-lg font-semibold hover:text-2xl">{user.displayName}</li>
-                                </Link>
+
+                                <li className="text-lg font-semibold hover:text-2xl">{user.displayName}</li>
+
                                 :
-                                <Link>
-                                    <li className="text-lg font-semibold hover:text-2xl">User Name</li>
-                                </Link>
+
+                                <li className="text-lg font-semibold hover:text-2xl">User Name</li>
+
                         }
                         {
                             user ?
