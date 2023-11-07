@@ -22,7 +22,7 @@ const Addjobs = () => {
 
         const newJob = { name, recruiter_mail, title, image, category, salary, description, posting_date, applicants, deadline };
         console.log(newJob);
-        fetch('http://localhost:5000/jobs', {
+        fetch('https://khujo-developers-server.vercel.app/jobs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
