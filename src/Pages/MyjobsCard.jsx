@@ -13,7 +13,7 @@ const MyjobsCard = ({ job, handleDelete }) => {
                 <>
                     <td className="bg-green-300 p-3">{name}</td>
                     <td className="bg-green-300 p-3">{title}</td>
-                    <td className="bg-green-300 p-3">{salary}</td>
+                    <td className="bg-green-300 p-3">${salary}k</td>
                     <td className="bg-green-300 p-3">{category}</td>
                     <td className="bg-green-300 p-3">
                         <button onClick={() => handleDelete(_id)} className="bg-red-400 p-2 rounded-lg text-white" >Delete</button>
