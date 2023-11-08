@@ -7,4 +7,4 @@ Project Features:
 
 
 live link: https://khujo-developers.web.app/
-server link: https://khujo-developers-server.vercel.app/
+server link: https://khujo-developers-server-nc47xw7ew-junaeds-projects.vercel.app//

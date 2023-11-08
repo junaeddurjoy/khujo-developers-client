@@ -15,7 +15,7 @@ const Appliedjobs = () => {
         setSearch(searched);
     };
     useEffect(() => {
-        fetch('https://khujo-developers-server.vercel.app/applications')
+        fetch('https://khujo-developers-server-nc47xw7ew-junaeds-projects.vercel.app//applications')
             .then(res => res.json())
             .then(data => setJobs(data));
     }, [])

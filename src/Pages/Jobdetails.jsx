@@ -37,7 +37,7 @@ const Jobdetails = () => {
             applicants
         }
         console.log(application);
-        fetch('https://khujo-developers-server.vercel.app/applications', {
+        fetch('https://khujo-developers-server-nc47xw7ew-junaeds-projects.vercel.app//applications', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

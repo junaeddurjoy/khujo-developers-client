@@ -18,7 +18,7 @@ const Updatejobs = () => {
         const deadline = form.deadline.value;
         const applicants = form.applicants.value;
         const updatedApply = { name, recruiter_mail, title, category, salary, description, posting_date, applicants, deadline };
-        fetch(`https://khujo-developers-server.vercel.app/jobs/${_id}`, {
+        fetch(`https://khujo-developers-server-nc47xw7ew-junaeds-projects.vercel.app//jobs/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
