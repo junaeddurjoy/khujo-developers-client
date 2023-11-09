@@ -58,12 +58,12 @@ const router = createBrowserRouter([
             {
                 path: "/jobdetails/:id",
                 element: <PrivateRoutes><Jobdetails></Jobdetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`https://khujo-developers-server-nc47xw7ew-junaeds-projects.vercel.app//jobs/${params.id}`)
+                loader: ({ params }) => fetch(`https://khujo-developers-server.vercel.app/jobs/${params.id}`)
             },
             {
                 path: "/updatejobs/:id",
                 element: <PrivateRoutes><Updatejobs></Updatejobs></PrivateRoutes>,
-                loader: ({ params }) => fetch(`https://khujo-developers-server-nc47xw7ew-junaeds-projects.vercel.app//jobs/${params.id}`)
+                loader: ({ params }) => fetch(`https://khujo-developers-server.vercel.app/jobs/${params.id}`)
             },
         ]
     },

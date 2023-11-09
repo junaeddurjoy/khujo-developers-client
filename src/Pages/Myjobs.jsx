@@ -18,7 +18,7 @@ const Myjobs = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://khujo-developers-server-nc47xw7ew-junaeds-projects.vercel.app//jobs/${id}`, {
+                fetch(`https://khujo-developers-server-nc47xw7ew-junaeds-projects.vercel.app/jobs/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -40,7 +40,7 @@ const Myjobs = () => {
         })
     }
     useEffect(() => {
-        fetch('https://khujo-developers-server-nc47xw7ew-junaeds-projects.vercel.app//jobs')
+        fetch('https://khujo-developers-server.vercel.app/jobs')
             .then(res => res.json())
             .then(data => setJobs(data));
     }, [])

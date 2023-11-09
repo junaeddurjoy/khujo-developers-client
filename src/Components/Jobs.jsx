@@ -4,7 +4,7 @@ const Jobs = () => {
     const [jobs, setJobs] = useState([]);
 
     useEffect( () => {
-        fetch('https://khujo-developers-server-nc47xw7ew-junaeds-projects.vercel.app//jobs')
+        fetch('https://khujo-developers-server.vercel.app/jobs')
         .then(res => res.json())
         .then(data => setJobs(data));
     } ,[])
